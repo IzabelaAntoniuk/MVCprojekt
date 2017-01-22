@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using MVCBiblioteka.Resources;
 
 namespace MVCBiblioteka.Models
 {
@@ -55,10 +56,10 @@ namespace MVCBiblioteka.Models
 
         [Required]
         [DataType(DataType.Password)]
-        [Display(Name = "Hasło")]
+        [Display(ResourceType = typeof(HomeTexts), Name = "Hasło")]
         public string Password { get; set; }
 
-        [Display(Name = "Zapamiętaj mnie")]
+        [Display(ResourceType = typeof(HomeTexts), Name = "Zapamietaj_mnie")]
         public bool RememberMe { get; set; }
     }
 
@@ -70,13 +71,15 @@ namespace MVCBiblioteka.Models
         public string Email { get; set; }
 
         [Required]
+        //[StringLength(100, ErrorMessageResourceType = typeof(Resources.HomeTexts),
+        //              ErrorMessageResourceName = "FirstNameLong")]
         [StringLength(100, ErrorMessage = "Hasło {0} musi posiadać conajmniej {2} znaków.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Hasło")]
+        [Display(ResourceType = typeof(HomeTexts), Name = "Hasło")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Potwierdź hasło")]
+        [Display(ResourceType = typeof(HomeTexts), Name = "Potwierdz_haslo")]
         [Compare("Password", ErrorMessage = "Hasła się nie zgadzają.")]
         public string ConfirmPassword { get; set; }
     }
@@ -91,11 +94,11 @@ namespace MVCBiblioteka.Models
         [Required]
         [StringLength(100, ErrorMessage = "Hasło {0} musi posiadać conajmniej {2} znaków.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Hasło")]
+        [Display(ResourceType = typeof(HomeTexts), Name = "Hasło")]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Potwierdź hasło")]
+        [Display(ResourceType = typeof(HomeTexts), Name = "Potwierdz_haslo")]
         [Compare("Password", ErrorMessage = "Hasła się nie zgadzają.")]
         public string ConfirmPassword { get; set; }
 

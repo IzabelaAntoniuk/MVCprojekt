@@ -18,11 +18,12 @@
             <div>
                 <ul class="topnav">
 
-                    <li><b>@Html.ActionLink("Biblioteka internetowa", "Index", "Home")</b></li>
-                    <li>@Html.ActionLink("Lista książek", "Index", "Books")</li>
-                    <li>@Html.ActionLink("Kategorie", "CategoriesList", "Categories")</li>
-                    <li>@Html.ActionLink("Autorzy", "AuthorsList", "Authors")</li>
-                    <li>@Html.ActionLink("Wydawnictwa", "PublishersList", "Publishers")</li>
+                    <li><b>@Html.ActionLink(MVCBiblioteka.Resources.HomeTexts.Biblioteka, "Index", "Home")</b></li>
+                    <li>@Html.ActionLink(MVCBiblioteka.Resources.HomeTexts.Lista_książek, "Index", "Books")</li>
+                    <li>@Html.ActionLink(MVCBiblioteka.Resources.HomeTexts.Kategorie, "CategoriesList", "Categories")</li>
+                    <li>@Html.ActionLink(MVCBiblioteka.Resources.HomeTexts.Autorzy, "AuthorsList", "Authors")</li>
+                    <li>@Html.ActionLink(MVCBiblioteka.Resources.HomeTexts.Wydawnictwa, "PublishersList", "Publishers")</li>
+                    <li>@Html.ActionLink(MVCBiblioteka.Resources.HomeTexts.Język, "Index", "Lang")</li>
                     <li>@{Html.RenderAction("CartSummary", "BooksCart");}</li>
 
                     @if (User.IsInRole("Administrator"))

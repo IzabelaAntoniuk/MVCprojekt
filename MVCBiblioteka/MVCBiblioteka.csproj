@@ -209,6 +209,7 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LangController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrderDetailsController.cs" />
     <Compile Include="Controllers\PublishersController.cs" />
@@ -439,6 +440,26 @@
     <Compile Include="Models\BooksCart.cs" />
     <Compile Include="Models\PublisherBooks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\HomeTexts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeTexts.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\HomeTexts.En.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeTexts.En.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\HomeTexts.Pl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeTexts.Pl.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\HomeTexts.Ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeTexts.Ru.resx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\BooksCartRemoveViewModel.cs" />
     <Compile Include="ViewModels\BooksCartViewModel.cs" />
@@ -557,6 +578,7 @@
     <Content Include="Views\Shared\_Admin.cshtml" />
     <Content Include="Views\Users\Admin.cshtml" />
     <Content Include="Views\Home\Lists.cshtml" />
+    <Content Include="Views\Lang\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Roles\" />
@@ -723,6 +745,22 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701221842217_cos.resx">
       <DependentUpon>201701221842217_cos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\HomeTexts.En.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeTexts.En.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\HomeTexts.Pl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeTexts.Pl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\HomeTexts.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeTexts.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\HomeTexts.Ru.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>HomeTexts.Ru.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
