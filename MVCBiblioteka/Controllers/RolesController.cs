@@ -9,6 +9,8 @@ namespace MVCBiblioteka.Controllers
 {
     public class RolesController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public string Create()
         {
             IdentityManager im = new IdentityManager();
@@ -29,6 +31,16 @@ namespace MVCBiblioteka.Controllers
             IdentityManager im = new IdentityManager();
 
             im.AddUserToRoleByUsername("j.kowalski@gmail.com", "Administrator");
+
+            return "OK";
+        }
+
+        public string AddToRole(string id)
+        {
+            IdentityManager im = new IdentityManager();
+            ApplicationUser applicationUser = db.Users.Find(id);
+
+            im.AddUserToRoleByUsername(applicationUser.Email, "Pracownik");
 
             return "OK";
         }

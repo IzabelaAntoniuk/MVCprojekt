@@ -418,6 +418,10 @@
     <Compile Include="Migrations\201701221748559_update12.Designer.cs">
       <DependentUpon>201701221748559_update12.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701221842217_cos.cs" />
+    <Compile Include="Migrations\201701221842217_cos.Designer.cs">
+      <DependentUpon>201701221842217_cos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Author.cs" />
@@ -716,6 +720,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701221748559_update12.resx">
       <DependentUpon>201701221748559_update12.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701221842217_cos.resx">
+      <DependentUpon>201701221842217_cos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

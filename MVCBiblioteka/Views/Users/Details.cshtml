@@ -133,5 +133,6 @@
 </div>
 <p>
     @Html.ActionLink("Edytuj", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Zaznacz jako pracownik", "AddToRole", new { id = Model.Id }, "Roles") |
     @Html.ActionLink("Wróć do listy", "Index")
 </p>

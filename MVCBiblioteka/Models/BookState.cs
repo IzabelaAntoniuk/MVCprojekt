@@ -11,6 +11,8 @@ namespace MVCBiblioteka.Models
         [Key]
         public int BookStateID { get; set; }
 
+        [Required]
+        [Display(Name = "Status książki: ")]
         public string state { get; set; }
 
         public virtual ICollection<Book> Books { get; set; }
