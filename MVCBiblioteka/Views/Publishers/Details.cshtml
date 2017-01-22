@@ -1,0 +1,46 @@
+﻿@model MVCBiblioteka.Models.Publisher
+
+@{
+    ViewBag.Title = "Details";
+    if (User.IsInRole("Administrator"))
+    {
+        Layout = "~/Views/Shared/_Admin.cshtml";
+    }
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Publisher</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.website)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.website)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.description)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PublisherID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

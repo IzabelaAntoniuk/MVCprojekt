@@ -1,0 +1,26 @@
+﻿@model MVCBiblioteka.Models.Category
+
+@{
+    ViewBag.Title = "Szczegóły gatunku";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Szczegóły gatunku</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edytuj", "Edit", new { id = Model.CategoryID }) |
+    @Html.ActionLink("Wróć do listy", "Index")
+</p>

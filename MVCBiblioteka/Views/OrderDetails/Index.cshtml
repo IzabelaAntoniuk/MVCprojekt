@@ -1,0 +1,64 @@
+﻿@model IEnumerable<MVCBiblioteka.Models.OrderDetail>
+
+@{
+    ViewBag.Title = "Szczegóły zamówienia";
+}
+
+<h2>Szczegóły zamówienia</h2>
+
+<p>
+    @Html.ActionLink("Stwórz nowe", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Book.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lendDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.returnDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Book.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.lendDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.returnDate)
+        </td>
+        <td>
+            @Html.ActionLink("Edytuj", "Edit", new { id=item.OrderDetailID }) |
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.OrderDetailID }) |
+            @Html.ActionLink("Twoje zamówienia", "getOrders", new { id = item.OrderDetailID }) |
+            @Html.ActionLink("Usuń", "Delete", new { id=item.OrderDetailID })
+        </td>
+    </tr>
+}
+
+</table>

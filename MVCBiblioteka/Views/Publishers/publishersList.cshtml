@@ -1,0 +1,14 @@
+﻿@model IEnumerable<MVCBiblioteka.Models.Publisher>
+@{
+    ViewBag.Title = "Lista wydawnictw";
+}
+
+<p>
+    <h2>Ilość wydawnictw: @Model.Count()</h2>
+</p>
+<ul>
+    @foreach (var publisher in Model)
+    {
+        <li>@Html.ActionLink(publisher.name, "Browse", new { publisher = publisher.name })</li>
+    }
+</ul>

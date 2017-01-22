@@ -1,0 +1,90 @@
+﻿@model MVCBiblioteka.ViewModels.BooksCartViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<script src="/Scripts/jquery-1.10.2.min.js"
+        type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        // Document.ready -> link up remove event handler
+        $(".RemoveLink").click(function () {
+            // Get the id from the link
+            var recordToDelete = $(this).attr("data-id");
+            if (recordToDelete != '') {
+                // Perform the ajax post
+                $.post("/BooksCart/RemoveFromCart", { "id": recordToDelete },
+                    function (data) {
+                        // Successful requests get here
+                        // Update the page elements
+                        if (data.ItemCount == 0) {
+                            $('#row-' + data.DeleteId).fadeOut('slow');
+                        } else {
+                            $('#item-count-' + data.DeleteId).text(data.ItemCount);
+                        }
+                        $('#cart-total').text(data.CartTotal);
+                        $('#update-message').text(data.Message);
+                        $('#cart-status').text('Cart (' + data.CartCount + ')');
+                    });
+            }
+        });
+    });
+</script>
+<h2>Przejrzyj swój koszyk:</h2>
+<p class="button">
+    @Html.ActionLink("Przejdź do potwierdzenia ", "AddressAndPayment", "Checkout")
+</p>
+<div id="update-message">
+</div>
+<table class="table">
+    <tr>
+        <th>
+            Nazwa książki
+        </th>
+        <th>
+            Data wypożyczenia
+        </th>
+        <th>
+            Data zwrotu
+        </th>
+        <th>
+            Ilość
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model.CartItems)
+    {
+        <tr id="row-@item.RecordID">
+            <td>
+                @Html.ActionLink(item.Book.title,
+"Details", "Books", new { id = item.BookID }, null)
+            </td>
+            <td>
+                @DateTime.Now.ToString("dd.MM.yyy")
+            </td>
+            <td>
+                @DateTime.Now.AddDays(14).ToString("dd.MM.yyy")
+            </td>
+            <td id="item-count-@item.RecordID">
+                @item.Count
+            </td>
+            <td>
+                <a href="#" class="RemoveLink"
+                   data-id="@item.RecordID">
+                    Usuń z koszyka
+                </a>
+            </td>
+        </tr>
+    }
+    <tr>
+        <td>
+            <b>Łącznie</b>
+        </td>
+        <td></td>
+        <td></td>
+        <td id="cart-total">
+            <b>@Model.CartTotal</b>
+        </td>
+    </tr>
+</table>

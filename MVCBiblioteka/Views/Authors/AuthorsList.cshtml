@@ -1,0 +1,14 @@
+﻿@model IEnumerable<MVCBiblioteka.Models.Author>
+@{
+    ViewBag.Title = "Lista autorów";
+}
+
+<p>
+    <h2>Ilość autorów: @Model.Count()</h2>
+</p>
+<ul>
+    @foreach (var author in Model)
+    {
+        <li>@Html.ActionLink(author.name, "Browse", new { author = author.name })</li>
+    }
+</ul>

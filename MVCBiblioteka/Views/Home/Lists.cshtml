@@ -1,0 +1,29 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div>
+    <ul class="navbar-nav topnav" id="myTopnav">
+
+        <li>@Html.ActionLink("Biblioteka\ninternetowa", "Index", "Home")</li>
+        <li>@Html.ActionLink("Lista książek", "Index", "Books")</li>
+        <li>@Html.ActionLink("Kategorie", "CategoriesList", "Categories")</li>
+        <li>@Html.ActionLink("Autorzy", "AuthorsList", "Authors")</li>
+        <li>@Html.ActionLink("Wydawnictwa", "PublishersList", "Publishers")</li>
+
+
+
+
+        <li>@{Html.RenderAction("CartSummary", "BooksCart");}</li>
+
+
+        @if (User.IsInRole("Administrator"))
+        {
+            <li><a href="@Url.Content("~/Users/Admin/")">| Panel admina </a></li>
+        }
+        <li class="icon">
+            <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>
+        </li>
+    </ul>
+    @Html.Partial("_LoginPartial")
+</div>

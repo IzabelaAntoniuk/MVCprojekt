@@ -1,0 +1,22 @@
+﻿@model MVCBiblioteka.Models.Category
+
+@{
+    ViewBag.Title = "Browse";
+}
+<div class="genre">
+    <h3><em>@Model.name</em> Albums</h3>
+
+    <ul id="album-list">
+        @foreach (var album in Model.Books)
+        {
+            <li>
+                <a href="@Url.Action("Details",
+                    new { id = album.BookID })">
+                    @*<img alt="@album.title"
+                         src="@album.AlbumArtUrl" />*@
+                    <span>@album.title</span>
+                </a>
+            </li>
+        }
+    </ul>
+</div>

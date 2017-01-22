@@ -1,0 +1,70 @@
+﻿@model IEnumerable<MVCBiblioteka.Models.Book>
+
+@{
+    ViewBag.Title = "Lista książek";
+    }
+
+<h2>Lista książek</h2>
+@if (User.IsInRole("Administrator"))
+{
+<p>
+    @Html.ActionLink("Stwórz nową", "Create")
+</p>
+}
+<p>
+    @using (Html.BeginForm("Index", "Books", FormMethod.Get))
+    {
+    <p>
+        Tytuł: @Html.TextBox("SearchTitle") 
+        @*Autor: @Html.TextBox("SearchAuthor")*@
+        ISBN: @Html.TextBox("SearchISBN") 
+        <input type="submit" value="Szukaj" />
+    </p>
+    }
+    
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.premiereDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AuthorID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BookState.state)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.premiereDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AuthorID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookState.state)
+        </td>
+        <td>
+@if (User.IsInRole("Administrator"))
+{
+            @Html.ActionLink("Edytuj", "Edit", new { id = item.BookID })
+}
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.BookID }) |
+@if (User.IsInRole("Administrator"))
+{
+            @Html.ActionLink("Usuń", "Delete", new { id = item.BookID })
+}
+        </td>
+    </tr>
+}
+
+</table>

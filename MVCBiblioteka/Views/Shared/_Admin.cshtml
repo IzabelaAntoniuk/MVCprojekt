@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @*[if IE]>
+        <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]*@
+    <link href="https://fonts.googleapis.com/css?family=Arima+Madurai" rel="stylesheet">
+
+</head>
+<body>
+    <div class="navbar-collapse collapse navbar-fixed-top">
+        <div >
+            <div>
+                <ul class="topnav">
+
+                    <li><b>@Html.ActionLink("Biblioteka\ninternetowa", "Index", "Home")</b></li>
+                    <li>@Html.ActionLink("Lista książek", "Index", "Books")</li>
+                    <li>@Html.ActionLink("Lista użytkowników", "Index", "Users")</li>
+                    <li>@Html.ActionLink("Kategorie", "Index", "Categories")</li>
+                    <li>@Html.ActionLink("Autorzy", "Index", "Authors")</li>
+                    <li>@Html.ActionLink("Wydawnictwa", "Index", "Publishers")</li>
+
+                    @Html.Partial("_LoginPartial")
+                </ul>
+            </div>
+        </div>
+        <div class="grad"></div>
+    </div>
+    <div class="container maindiv">
+        @RenderBody()
+        <footer>
+            @*<p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>*@
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
