@@ -209,6 +209,7 @@
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CheckoutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LangController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrderDetailsController.cs" />
     <Compile Include="Controllers\PublishersController.cs" />
@@ -471,14 +472,26 @@
     <Compile Include="Models\BooksCart.cs" />
     <Compile Include="Models\PublisherBooks.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Resources\HomeTexts.Designer.cs" />
-    <Compile Include="Resources\HomeTexts.En.Designer.cs" />
-    <Compile Include="Resources\HomeTexts.Pl.Designer.cs" />
-    <Compile Include="Resources\HomeTexts.Ru.Designer.cs" />
-    <Compile Include="Resources\Resources\HomeTexts.Designer.cs" />
-    <Compile Include="Resources\Resources\HomeTexts.En.Designer.cs" />
-    <Compile Include="Resources\Resources\HomeTexts.Pl.Designer.cs" />
-    <Compile Include="Resources\Resources\HomeTexts.Ru.Designer.cs" />
+    <Compile Include="Resources\HomeTexts.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeTexts.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\HomeTexts.En.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeTexts.En.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\HomeTexts.Pl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeTexts.Pl.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\HomeTexts.Ru.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HomeTexts.Ru.resx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\BooksCartRemoveViewModel.cs" />
     <Compile Include="ViewModels\BooksCartViewModel.cs" />

@@ -1,4 +1,3 @@
-﻿@Html.ActionLink("Koszyk (" + ViewData["CartCount"] + ")",
-    "Index",
+﻿@Html.ActionLink(MVCBiblioteka.Resources.HomeTexts.Koszyk + "(" + ViewData["CartCount"] + ")", "Index",
     "BooksCart",
     new { id = "cart-status" })

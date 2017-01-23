@@ -7,7 +7,7 @@
 
     <ul class="navbar-right topnav navbar-collapse collapse" id="myTopnav2">
         <li>
-            @Html.ActionLink("Witaj, " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            @Html.ActionLink(MVCBiblioteka.Resources.HomeTexts.Witaj +" "+ User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li><a href="javascript:document.getElementById('logoutForm').submit()">Wyloguj</a></li>
         <li class="icon">
@@ -19,8 +19,8 @@
 else
 {
     <ul class="navbar-right topnav navbar-nav" id="myTopnav2">
-        <li>@Html.ActionLink("Zarejestruj się", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Zaloguj się", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink(MVCBiblioteka.Resources.HomeTexts.Zarejestruj, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+        <li>@Html.ActionLink(MVCBiblioteka.Resources.HomeTexts.Zaloguj, "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
         <li class="icon">
             <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction2()">☰</a>
         </li>
