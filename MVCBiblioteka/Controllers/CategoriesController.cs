@@ -17,7 +17,8 @@ namespace MVCBiblioteka.Controllers
         // GET: Categories
         public ActionResult Index()
         {
-            return View(db.Categories.ToList());
+            var categories = db.Categories.Include(c => c.FatherCategory);
+            return View(categories.ToList());
         }
 
         // GET: Categories/Details/5
@@ -38,6 +39,7 @@ namespace MVCBiblioteka.Controllers
         // GET: Categories/Create
         public ActionResult Create()
         {
+            ViewBag.fatherCategoryID = new SelectList(db.Categories, "CategoryID", "name");
             return View();
         }
 
@@ -46,7 +48,7 @@ namespace MVCBiblioteka.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "CategoryID,name")] Category category)
+        public ActionResult Create([Bind(Include = "CategoryID,name,fatherCategoryID")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -55,6 +57,7 @@ namespace MVCBiblioteka.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.fatherCategoryID = new SelectList(db.Categories, "CategoryID", "name", category.fatherCategoryID);
             return View(category);
         }
 
@@ -70,6 +73,7 @@ namespace MVCBiblioteka.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.fatherCategoryID = new SelectList(db.Categories, "CategoryID", "name", category.fatherCategoryID);
             return View(category);
         }
 
@@ -78,7 +82,7 @@ namespace MVCBiblioteka.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "CategoryID,name")] Category category)
+        public ActionResult Edit([Bind(Include = "CategoryID,name,fatherCategoryID")] Category category)
         {
             if (ModelState.IsValid)
             {
@@ -86,6 +90,7 @@ namespace MVCBiblioteka.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.fatherCategoryID = new SelectList(db.Categories, "CategoryID", "name", category.fatherCategoryID);
             return View(category);
         }
 

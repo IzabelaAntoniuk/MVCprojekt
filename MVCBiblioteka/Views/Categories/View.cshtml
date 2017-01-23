@@ -1,0 +1,19 @@
+﻿@model IEnumerable<MVCBiblioteka.Models.Category>
+@{
+    Layout = null;
+}
+
+@foreach (var item in Model)
+{
+    <li>
+        @Html.ActionLink(item.name, "Browse", new { genre = item.name })
+        @if (item.Categories.Count > 0)
+        {
+            <ul>
+                @{Html.RenderPartial("~/Views/Categories/View.cshtml", item.Categories);}
+            </ul>
+            <br />
+                    }
+        
+    </li>
+}

@@ -32,6 +32,7 @@ namespace MVCBiblioteka.Models
         [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         [ScaffoldColumn(false)]
+        [Display(Name = "Użytkownik")]
         public string UserID { get; set; }
         public List<OrderDetail> OrderDetails { get; set; }
     }

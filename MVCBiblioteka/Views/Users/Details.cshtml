@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Profil użytkownika";
+    Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
 <h2>Profil użytkownika</h2>
@@ -133,6 +134,10 @@
 </div>
 <p>
     @Html.ActionLink("Edytuj", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Zaznacz jako pracownik", "AddToRole", new { id = Model.Id }, "Roles") |
+    @if(User.IsInRole("Administrator"))
+    {
+        <a>@Html.ActionLink("Oznacz jako pracownika", "AddToRole", new { id = Model.Id }) |</a>
+        <a>@Html.ActionLink("Usuń rolę", "DeleteFromRole", new { id = Model.Id }) |</a>
+    }
     @Html.ActionLink("Wróć do listy", "Index")
 </p>

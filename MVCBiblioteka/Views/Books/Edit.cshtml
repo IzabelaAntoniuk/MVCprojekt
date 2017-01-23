@@ -70,19 +70,18 @@
             </div>
         </div>
 
+        @if (User.IsInRole("Pracownik"))
+        {
         <div class="form-group">
             @Html.LabelFor(model => model.BookStateID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @*@Html.EditorFor(model => model.state, new { htmlAttributes = new { @class = "form-control" } })*@
                 @*@Html.ValidationMessageFor(model => model.state, "", new { @class = "text-danger" })*@
-                @Html.DropDownList("BookStateID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.BookStateID, "", new { @class = "text-danger" })
-
-
-
-                
+                <a>@Html.DropDownList("BookStateID", null, htmlAttributes: new { @class = "form-control" })</a>
+                <a>@Html.ValidationMessageFor(model => model.BookStateID, "", new { @class = "text-danger" })</a>
             </div>
         </div>
+        }
 
         <div class="form-group">
             @Html.LabelFor(model => model.ISBN, htmlAttributes: new { @class = "control-label col-md-2" })

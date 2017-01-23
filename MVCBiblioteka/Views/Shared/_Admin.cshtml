@@ -20,9 +20,13 @@
                     <li><b>@Html.ActionLink("Biblioteka\ninternetowa", "Index", "Home")</b></li>
                     <li>@Html.ActionLink("Lista książek", "Index", "Books")</li>
                     <li>@Html.ActionLink("Lista użytkowników", "Index", "Users")</li>
+                    <li>@Html.ActionLink("Wypożyczenia", "Index", "OrderDetails")</li>
+                    @if(User.IsInRole("Administrator"))
+                    {
                     <li>@Html.ActionLink("Kategorie", "Index", "Categories")</li>
                     <li>@Html.ActionLink("Autorzy", "Index", "Authors")</li>
                     <li>@Html.ActionLink("Wydawnictwa", "Index", "Publishers")</li>
+                    }
 
                     @Html.Partial("_LoginPartial")
                 </ul>
