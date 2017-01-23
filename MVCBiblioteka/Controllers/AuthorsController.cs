@@ -128,8 +128,8 @@ namespace MVCBiblioteka.Controllers
 
         public ActionResult Browse(string author)
         {
-            var authorModel = db.Authors.Include("Books")
-                .Single(a => a.name == author);
+            var authorModel = db.Authors.Include("AuthorBooks")
+                .Single(a => a.allname == author);
 
             return View(authorModel);
         }

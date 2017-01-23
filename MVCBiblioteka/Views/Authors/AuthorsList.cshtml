@@ -9,6 +9,6 @@
 <ul>
     @foreach (var author in Model)
     {
-        <li>@Html.ActionLink(author.name, "Browse", new { author = author.name })</li>
+        <li>@Html.ActionLink(author.allname, "Browse", new { author = author.allname })</li>
     }
 </ul>
