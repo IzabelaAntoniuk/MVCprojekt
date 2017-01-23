@@ -614,6 +614,7 @@
     <Content Include="Views\Categories\View.cshtml" />
     <Content Include="Views\Categories\CategoriesList.cshtml" />
     <Content Include="Views\Categories\Browse.cshtml" />
+    <Content Include="Views\Books\ShowNews.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Roles\" />

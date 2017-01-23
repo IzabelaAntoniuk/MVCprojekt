@@ -42,44 +42,24 @@ namespace MVCBiblioteka.Controllers
                 books = books.Where(g => g.description.Contains(searchTitle)).ToList();
 
             }
-            //else if(option=="BookState")
-            //{
-            //    books = books.Where(g => g.BookState.state.Contains(searchISBN)).ToList();
 
-            //}
-
-            /* if (!String.IsNullOrEmpty(searchTitle))
-             {
-                 books = books.Where(g=> g.title.Contains(searchTitle)).ToList();
-                 //students.Where(s => s.LastName.Contains(searchString)
-                 //               || s.FirstMidName.Contains(searchString));
-                 //if (books != books.Where(g => g.ISBN.Contains(searchTitle)).ToList())
-                 //{
-                 //    books = books.Where(g => g.ISBN.Contains(searchTitle)).ToList();
-                 //}
-                 //else if (books == books.Where(g => g.title.Contains(searchTitle)).ToList())
-                 //    books = books.Where(g => g.title.Contains(searchTitle)).ToList();
-             }
-             */
-
-            //  var category = db.Books.Where(i => i.CategoryBooks.Where(s => s.Category.name.Contains(searchState)).ToList();
-            //if (!String.IsNullOrEmpty(searchCategory))
-            //{
-
-            //    books = books.Where(i => i.CategoryBooks.Where(s => s.Category.name.Contains(searchCategory))).ToList();
-
-
-            //}
-            if (!String.IsNullOrEmpty(searchState))
-            {
-                
-                books = books.Where(g => g.BookState.state.Contains(searchState)).ToList();
-
-
-            }
 
             return View(books);
         }
+        public ActionResult ShowNews()
+        {
+            var books = db.Books.OrderByDescending(x => x.BookID).Take(3).ToList();
+
+            return View(books);
+        }
+        public ActionResult Browse(string books)
+        {
+            var bookModel = db.Books.Include("Books")
+                .Single(a => a.title == books);
+
+            return View(bookModel);
+        }
+
 
         // GET: Books/Details/5
         //[Authorize(Roles = "Administrator")]
