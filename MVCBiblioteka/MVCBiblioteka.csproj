@@ -423,6 +423,38 @@
     <Compile Include="Migrations\201701221842217_cos.Designer.cs">
       <DependentUpon>201701221842217_cos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701222027104_tak.cs" />
+    <Compile Include="Migrations\201701222027104_tak.Designer.cs">
+      <DependentUpon>201701222027104_tak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701222036145_tak1.cs" />
+    <Compile Include="Migrations\201701222036145_tak1.Designer.cs">
+      <DependentUpon>201701222036145_tak1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701222211499_categories.cs" />
+    <Compile Include="Migrations\201701222211499_categories.Designer.cs">
+      <DependentUpon>201701222211499_categories.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701222239039_categories1.cs" />
+    <Compile Include="Migrations\201701222239039_categories1.Designer.cs">
+      <DependentUpon>201701222239039_categories1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701222251251_categories2.cs" />
+    <Compile Include="Migrations\201701222251251_categories2.Designer.cs">
+      <DependentUpon>201701222251251_categories2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701222311541_categories3.cs" />
+    <Compile Include="Migrations\201701222311541_categories3.Designer.cs">
+      <DependentUpon>201701222311541_categories3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701222335402_categories4.cs" />
+    <Compile Include="Migrations\201701222335402_categories4.Designer.cs">
+      <DependentUpon>201701222335402_categories4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701230031115_categories5.cs" />
+    <Compile Include="Migrations\201701230031115_categories5.Designer.cs">
+      <DependentUpon>201701230031115_categories5.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Author.cs" />
@@ -482,6 +514,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Resources\Resources.zip" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -546,21 +579,9 @@
     <Content Include="Views\Users\Index.cshtml" />
     <Content Include="Views\Home\GenreMenu.cshtml" />
     <Content Include="Views\Home\Browse.cshtml" />
-    <Content Include="Views\Categories\Create.cshtml" />
-    <Content Include="Views\Categories\Delete.cshtml" />
-    <Content Include="Views\Categories\Details.cshtml" />
-    <Content Include="Views\Categories\Edit.cshtml" />
-    <Content Include="Views\Categories\Index.cshtml" />
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Manage\getOrders.cshtml" />
-    <Content Include="Views\OrderDetails\Create.cshtml" />
-    <Content Include="Views\OrderDetails\Delete.cshtml" />
-    <Content Include="Views\OrderDetails\Details.cshtml" />
-    <Content Include="Views\OrderDetails\Edit.cshtml" />
-    <Content Include="Views\OrderDetails\Index.cshtml" />
     <Content Include="Views\Manage\Details.cshtml" />
-    <Content Include="Views\Categories\Browse.cshtml" />
-    <Content Include="Views\Categories\CategoriesList.cshtml" />
     <Content Include="Views\Authors\Create.cshtml" />
     <Content Include="Views\Authors\Delete.cshtml" />
     <Content Include="Views\Authors\Details.cshtml" />
@@ -578,7 +599,21 @@
     <Content Include="Views\Shared\_Admin.cshtml" />
     <Content Include="Views\Users\Admin.cshtml" />
     <Content Include="Views\Home\Lists.cshtml" />
-    <Content Include="Views\Lang\Index.cshtml" />
+    <Content Include="Views\Users\AddToRole.cshtml" />
+    <Content Include="Views\Users\DeleteFromRole.cshtml" />
+    <Content Include="Views\OrderDetails\Create.cshtml" />
+    <Content Include="Views\OrderDetails\Delete.cshtml" />
+    <Content Include="Views\OrderDetails\Details.cshtml" />
+    <Content Include="Views\OrderDetails\Edit.cshtml" />
+    <Content Include="Views\OrderDetails\Index.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
+    <Content Include="Views\Categories\View.cshtml" />
+    <Content Include="Views\Categories\CategoriesList.cshtml" />
+    <Content Include="Views\Categories\Browse.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Roles\" />
@@ -746,22 +781,38 @@
     <EmbeddedResource Include="Migrations\201701221842217_cos.resx">
       <DependentUpon>201701221842217_cos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\HomeTexts.En.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>HomeTexts.En.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="Migrations\201701222027104_tak.resx">
+      <DependentUpon>201701222027104_tak.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\HomeTexts.Pl.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>HomeTexts.Pl.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="Migrations\201701222036145_tak1.resx">
+      <DependentUpon>201701222036145_tak1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\HomeTexts.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>HomeTexts.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="Migrations\201701222211499_categories.resx">
+      <DependentUpon>201701222211499_categories.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\HomeTexts.Ru.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>HomeTexts.Ru.Designer.cs</LastGenOutput>
+    <EmbeddedResource Include="Migrations\201701222239039_categories1.resx">
+      <DependentUpon>201701222239039_categories1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701222251251_categories2.resx">
+      <DependentUpon>201701222251251_categories2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701222311541_categories3.resx">
+      <DependentUpon>201701222311541_categories3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701222335402_categories4.resx">
+      <DependentUpon>201701222335402_categories4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701230031115_categories5.resx">
+      <DependentUpon>201701230031115_categories5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\HomeTexts.En.resx" />
+    <EmbeddedResource Include="Resources\HomeTexts.Pl.resx" />
+    <EmbeddedResource Include="Resources\HomeTexts.resx" />
+    <EmbeddedResource Include="Resources\HomeTexts.Ru.resx" />
+    <EmbeddedResource Include="Resources\Resources\HomeTexts.En.resx" />
+    <EmbeddedResource Include="Resources\Resources\HomeTexts.Pl.resx" />
+    <EmbeddedResource Include="Resources\Resources\HomeTexts.resx" />
+    <EmbeddedResource Include="Resources\Resources\HomeTexts.Ru.resx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

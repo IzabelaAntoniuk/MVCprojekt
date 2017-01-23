@@ -8,10 +8,14 @@ namespace MVCBiblioteka.Models
 {
     public class OrderDetail
     {
+        [Key]
         public int OrderDetailID { get; set; }
         public int OrderID { get; set; }
+        [Display(Name = "Nazwa książki: ")]
         public int BookID { get; set; }
+        [Display(Name = "Użytkownik: ")]
         public string username { get; set; }
+        [Display(Name = "Użytkownik: ")]
         public string UserID { get; set; }
         [Display(Name = "Ilość: ")]
         public int Quantity { get; set; }

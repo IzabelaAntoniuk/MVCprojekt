@@ -1,27 +1,19 @@
 ﻿@model IEnumerable<MVCBiblioteka.Models.OrderDetail>
 
 @{
-    ViewBag.Title = "Szczegóły zamówienia";
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<h2>Szczegóły zamówienia</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Stwórz nowe", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Book.title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Order.Username)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User.name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Quantity)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.lendDate)
@@ -38,25 +30,15 @@
             @Html.DisplayFor(modelItem => item.Book.title)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Order.Username)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.User.name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.lendDate)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.returnDate)
         </td>
         <td>
-            @Html.ActionLink("Edytuj", "Edit", new { id=item.OrderDetailID }) |
-            @Html.ActionLink("Szczegóły", "Details", new { id=item.OrderDetailID }) |
-            @Html.ActionLink("Twoje zamówienia", "getOrders", new { id = item.OrderDetailID }) |
-            @Html.ActionLink("Usuń", "Delete", new { id=item.OrderDetailID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.OrderDetailID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.OrderDetailID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.OrderDetailID })
         </td>
     </tr>
 }

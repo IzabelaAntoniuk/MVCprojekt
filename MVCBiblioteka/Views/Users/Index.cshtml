@@ -2,10 +2,7 @@
 
 @{
     ViewBag.Title = "Lista użytkowników";
-    if (User.IsInRole("Administrator"))
-    {
-        Layout = "~/Views/Shared/_Admin.cshtml";
-    }
+    Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
 <h2>Lista użytkowników</h2>

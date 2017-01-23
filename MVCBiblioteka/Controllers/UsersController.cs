@@ -129,5 +129,25 @@ namespace MVCBiblioteka.Controllers
         {
             return View();
         }
+
+        public ActionResult AddToRole(string id)
+        {
+            IdentityManager im = new IdentityManager();
+            ApplicationUser applicationUser = db.Users.Find(id);
+
+            im.AddUserToRoleByUsername(applicationUser.Email, "Pracownik");
+
+            return View();
+        }
+
+        public ActionResult DeleteFromRole(string id)
+        {
+            IdentityManager im = new IdentityManager();
+            ApplicationUser applicationUser = db.Users.Find(id);
+
+            im.ClearUserRoles(applicationUser.Id);
+            
+            return View();
+        }
     }
 }

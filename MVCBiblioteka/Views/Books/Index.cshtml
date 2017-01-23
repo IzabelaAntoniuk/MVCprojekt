@@ -5,7 +5,7 @@
     }
 
 <h2>Lista książek</h2>
-@if (User.IsInRole("Administrator"))
+@if (User.IsInRole("Administrator") || User.IsInRole("Pracownik"))
 {
 <p>
     @Html.ActionLink("Stwórz nową", "Create")
@@ -58,12 +58,12 @@
             @Html.DisplayFor(modelItem => item.BookState.state)
         </td>
         <td>
-@if (User.IsInRole("Administrator"))
+@if (User.IsInRole("Administrator") || User.IsInRole("Pracownik"))
 {
             @Html.ActionLink("Edytuj", "Edit", new { id = item.BookID })
 }
-            @Html.ActionLink("Szczegóły", "Details", new { id=item.BookID }) |
-@if (User.IsInRole("Administrator"))
+            @Html.ActionLink("Szczegóły", "Details", new { id=item.BookID })
+@if (User.IsInRole("Administrator") || User.IsInRole("Pracownik"))
 {
             @Html.ActionLink("Usuń", "Delete", new { id = item.BookID })
 }
