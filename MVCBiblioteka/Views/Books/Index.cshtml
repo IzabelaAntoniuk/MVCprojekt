@@ -15,9 +15,13 @@
     @using (Html.BeginForm("Index", "Books", FormMethod.Get))
     {
     <p>
-        Tytuł: @Html.TextBox("SearchTitle") 
-        @*Autor: @Html.TextBox("SearchAuthor")*@
-        ISBN: @Html.TextBox("SearchISBN") 
+
+        @Html.RadioButton("option", "title") <text>Tytuł</text>
+        @Html.RadioButton("option", "ISBN")  <text> ISBN </text>
+        @Html.RadioButton("option", "BookStateID") <text>Status książki</text>
+        @Html.RadioButton("option", "description") <text>Opis książki</text>
+       @Html.TextBox("SearchTitle") 
+       @*Autor: @Html.TextBox("SearchAuthor")*@
         <input type="submit" value="Szukaj" />
     </p>
     }
