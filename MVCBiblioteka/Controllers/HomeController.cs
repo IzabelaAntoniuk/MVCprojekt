@@ -12,11 +12,13 @@ namespace MVCBiblioteka.Controllers
     {
         ApplicationDbContext libraryDB = new ApplicationDbContext();
 
+        [RequireHttps]
         public ActionResult Index()
         {
-            var genres = libraryDB.Categories.ToList();
+            //var genres = libraryDB.Categories.ToList();
+            //var a = db.Messages.OrderByDescending(b => b.msgID);
 
-            return View(genres);
+            return View();
         }
 
         public ActionResult Browse(string genre)

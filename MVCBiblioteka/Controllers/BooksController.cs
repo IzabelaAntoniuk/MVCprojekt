@@ -33,6 +33,7 @@ namespace MVCBiblioteka.Controllers
             if (!String.IsNullOrEmpty(searchISBN))
             {
                 books = books.Where(g => g.ISBN.Contains(searchISBN)).ToList();
+                books = books.Where(g => g.CategoryBooks.FirstOrDefault().Category.name.Contains(searchTitle)).ToList();
             }
 
             return View(books);
