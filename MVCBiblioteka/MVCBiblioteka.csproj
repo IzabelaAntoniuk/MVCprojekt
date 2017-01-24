@@ -484,6 +484,14 @@
     <Compile Include="Migrations\201701240602238_heh4.Designer.cs">
       <DependentUpon>201701240602238_heh4.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701241305110_dateMsg.cs" />
+    <Compile Include="Migrations\201701241305110_dateMsg.Designer.cs">
+      <DependentUpon>201701241305110_dateMsg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701241315448_dateMsg1.cs" />
+    <Compile Include="Migrations\201701241315448_dateMsg1.Designer.cs">
+      <DependentUpon>201701241315448_dateMsg1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Author.cs" />
@@ -639,17 +647,17 @@
     <Content Include="Views\Categories\View.cshtml" />
     <Content Include="Views\Categories\CategoriesList.cshtml" />
     <Content Include="Views\Categories\Browse.cshtml" />
-    <Content Include="Views\Messages\Create.cshtml" />
-    <Content Include="Views\Messages\Delete.cshtml" />
-    <Content Include="Views\Messages\Details.cshtml" />
-    <Content Include="Views\Messages\Edit.cshtml" />
-    <Content Include="Views\Messages\Index.cshtml" />
     <Content Include="Views\Books\Create.cshtml" />
     <Content Include="Views\Books\Delete.cshtml" />
     <Content Include="Views\Books\Details.cshtml" />
     <Content Include="Views\Books\Edit.cshtml" />
     <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\Books\ShowNews.cshtml" />
+    <Content Include="Views\Messages\Create.cshtml" />
+    <Content Include="Views\Messages\Delete.cshtml" />
+    <Content Include="Views\Messages\Details.cshtml" />
+    <Content Include="Views\Messages\Edit.cshtml" />
+    <Content Include="Views\Messages\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\Roles\" />
@@ -862,9 +870,18 @@
     <EmbeddedResource Include="Migrations\201701240602238_heh4.resx">
       <DependentUpon>201701240602238_heh4.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701241305110_dateMsg.resx">
+      <DependentUpon>201701241305110_dateMsg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701241315448_dateMsg1.resx">
+      <DependentUpon>201701241315448_dateMsg1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\HomeTexts.En.resx" />
     <EmbeddedResource Include="Resources\HomeTexts.Pl.resx" />
-    <EmbeddedResource Include="Resources\HomeTexts.resx" />
+    <EmbeddedResource Include="Resources\HomeTexts.resx">
+      <LastGenOutput>HomeTexts1.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\HomeTexts.Ru.resx" />
     <EmbeddedResource Include="Resources\Resources\HomeTexts.En.resx" />
     <EmbeddedResource Include="Resources\Resources\HomeTexts.Pl.resx" />

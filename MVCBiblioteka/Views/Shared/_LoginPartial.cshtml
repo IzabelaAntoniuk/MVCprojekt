@@ -9,7 +9,7 @@
         <li>
             @Html.ActionLink(MVCBiblioteka.Resources.HomeTexts.Witaj +" "+ User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Wyloguj</a></li>
+        <li><a href="javascript:document.getElementById('logoutForm').submit()">@MVCBiblioteka.Resources.HomeTexts.Wyloguj</a></li>
         <li class="icon">
             <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction2()">☰</a>
         </li>

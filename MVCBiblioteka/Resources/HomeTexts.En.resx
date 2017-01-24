@@ -147,6 +147,12 @@
   <data name="Lista_książek" xml:space="preserve">
     <value>Book list</value>
   </data>
+  <data name="PanelAdmina" xml:space="preserve">
+    <value>| Admin Panel</value>
+  </data>
+  <data name="PanelPracownika" xml:space="preserve">
+    <value>| Employee Panel</value>
+  </data>
   <data name="Potwierdz_haslo" xml:space="preserve">
     <value>Confirm password</value>
   </data>

@@ -46,7 +46,7 @@ namespace MVCBiblioteka.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "MessageID,msg")] Message message)
+        public ActionResult Create([Bind(Include = "MessageID,msg,date")] Message message)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace MVCBiblioteka.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "MessageID,msg")] Message message)
+        public ActionResult Edit([Bind(Include = "MessageID,msg,date")] Message message)
         {
             if (ModelState.IsValid)
             {

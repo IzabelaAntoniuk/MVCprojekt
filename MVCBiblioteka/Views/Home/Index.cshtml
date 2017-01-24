@@ -41,7 +41,7 @@
     <div style="float:right">
         @*@Html.ActionLink("Lista książek", "Index", "Books")*@
         <div class="alert alert-info">
-            <strong>Wiadomość od admina</strong><br />@Html.DisplayFor(modelItem => Model.FirstOrDefault().msg)
+            <strong>@Html.DisplayFor(modelItem => Model.FirstOrDefault().date) Wiadomość od admina</strong><br />@Html.DisplayFor(modelItem => Model.FirstOrDefault().msg)
         </div>
 
         @if (User.IsInRole("Administrator") || User.IsInRole("Pracownik"))

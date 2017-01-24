@@ -28,11 +28,11 @@
 
                     @if (User.IsInRole("Administrator"))
                     {
-                        <li><a href="@Url.Content("~/Users/Admin/")">| Panel admina </a></li>
+                        <li><a href="@Url.Content("~/Users/Admin/")">@MVCBiblioteka.Resources.HomeTexts.PanelAdmina</a></li>
                     }
                     else if (User.IsInRole("Pracownik"))
                     {
-                        <li><a href="@Url.Content("~/Users/Admin/")">| Panel pracownika </a></li>
+                        <li><a href="@Url.Content("~/Users/Admin/")">@MVCBiblioteka.Resources.HomeTexts.PanelPracownika</a></li>
                     }
                     <li class="icon">
                         <a href="javascript:void(0);" style="font-size:15px;" onclick="myFunction()">☰</a>

@@ -180,6 +180,28 @@ namespace MVCBiblioteka.Resources
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to | Admin Panel.
+        /// </summary>
+        public static string PanelAdmina
+        {
+            get
+            {
+                return ResourceManager.GetString("PanelAdmina", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to | Employee Panel.
+        /// </summary>
+        public static string PanelPracownika
+        {
+            get
+            {
+                return ResourceManager.GetString("PanelPracownika", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Confirm password.
         /// </summary>
         public static string Potwierdz_haslo
@@ -213,6 +235,28 @@ namespace MVCBiblioteka.Resources
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to Hello admin.
+        /// </summary>
+        public static string WitajAdmin
+        {
+            get
+            {
+                return ResourceManager.GetString("WitajAdmin", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Hello employee.
+        /// </summary>
+        public static string WitajPracownik
+        {
+            get
+            {
+                return ResourceManager.GetString("WitajPracownik", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Publishers.
         /// </summary>
         public static string Wydawnictwa
@@ -220,6 +264,17 @@ namespace MVCBiblioteka.Resources
             get
             {
                 return ResourceManager.GetString("Wydawnictwa", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Logout.
+        /// </summary>
+        public static string Wyloguj
+        {
+            get
+            {
+                return ResourceManager.GetString("Wyloguj", resourceCulture);
             }
         }
 

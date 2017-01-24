@@ -56,18 +56,23 @@ namespace MVCBiblioteka.Controllers
             {
                 db.OrderDetails.Add(orderDetail);
 
-                var stock = from m
-                            in db.Books
-                            where m.title == orderDetail.Book.title
-                            select m;
+                bool isValid = db.Books.Any(
+                o => o.title == orderDetail.Book.title);
 
-                if (stock != null)
-                db.Books.Where(b => b.title == stock.FirstOrDefault().title).FirstOrDefault().stockLevel--;
+                if (isValid)
+                {
+                    var stock = from m
+                                in db.Books
+                                where m.title == orderDetail.Book.title
+                                select m;
+
+                    if (stock != null)
+                        db.Books.Where(b => b.stockLevel > 0).FirstOrDefault().stockLevel--;
+                }
 
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             ViewBag.BookID = new SelectList(db.Books, "BookID", "title", orderDetail.BookID);
             ViewBag.OrderID = new SelectList(db.Orders, "OrderID", "Username", orderDetail.OrderID);
             ViewBag.UserID = new SelectList(db.Users, "Id", "name", orderDetail.UserID);

@@ -10,6 +10,10 @@ namespace MVCBiblioteka.Models
     {
         [Key]
         public int MessageID { get; set; }
+        [Display(Name = "Treść: ")]
         public string msg { get; set; }
+        [Display(Name = "Data: ")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy.MM.dd}")]
+        public DateTime date { get; set; }
     }
 }

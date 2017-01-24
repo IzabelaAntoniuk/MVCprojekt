@@ -138,6 +138,12 @@
   <data name="Lista_książek" xml:space="preserve">
     <value>Lista książek</value>
   </data>
+  <data name="PanelAdmina" xml:space="preserve">
+    <value>| Panel admina</value>
+  </data>
+  <data name="PanelPracownika" xml:space="preserve">
+    <value>| Panel pracownika</value>
+  </data>
   <data name="Wiadomosci" xml:space="preserve">
     <value>Wiadomości</value>
   </data>
