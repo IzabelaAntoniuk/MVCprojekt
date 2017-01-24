@@ -16,9 +16,9 @@ namespace MVCBiblioteka.Controllers
         public ActionResult Index()
         {
             //var genres = libraryDB.Categories.ToList();
-            //var a = db.Messages.OrderByDescending(b => b.msgID);
+            var a = libraryDB.Messages.OrderByDescending(b => b.MessageID);
 
-            return View();
+            return View(a.ToList());
         }
 
         public ActionResult Browse(string genre)

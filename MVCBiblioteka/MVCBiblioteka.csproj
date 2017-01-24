@@ -211,6 +211,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LangController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MessagesController.cs" />
     <Compile Include="Controllers\OrderDetailsController.cs" />
     <Compile Include="Controllers\PublishersController.cs" />
     <Compile Include="Controllers\RolesController.cs" />
@@ -455,6 +456,34 @@
     <Compile Include="Migrations\201701230031115_categories5.Designer.cs">
       <DependentUpon>201701230031115_categories5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701240235190_orderLine.cs" />
+    <Compile Include="Migrations\201701240235190_orderLine.Designer.cs">
+      <DependentUpon>201701240235190_orderLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701240237228_orderLine1.cs" />
+    <Compile Include="Migrations\201701240237228_orderLine1.Designer.cs">
+      <DependentUpon>201701240237228_orderLine1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701240356040_cos1.cs" />
+    <Compile Include="Migrations\201701240356040_cos1.Designer.cs">
+      <DependentUpon>201701240356040_cos1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701240359213_cos2.cs" />
+    <Compile Include="Migrations\201701240359213_cos2.Designer.cs">
+      <DependentUpon>201701240359213_cos2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701240400080_cos3.cs" />
+    <Compile Include="Migrations\201701240400080_cos3.Designer.cs">
+      <DependentUpon>201701240400080_cos3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701240537488_heh3.cs" />
+    <Compile Include="Migrations\201701240537488_heh3.Designer.cs">
+      <DependentUpon>201701240537488_heh3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701240602238_heh4.cs" />
+    <Compile Include="Migrations\201701240602238_heh4.Designer.cs">
+      <DependentUpon>201701240602238_heh4.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Author.cs" />
@@ -466,6 +495,7 @@
     <Compile Include="Models\CategoryBooks.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Message.cs" />
     <Compile Include="Models\Order.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Publisher.cs" />
@@ -563,11 +593,6 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Books\Create.cshtml" />
-    <Content Include="Views\Books\Delete.cshtml" />
-    <Content Include="Views\Books\Details.cshtml" />
-    <Content Include="Views\Books\Edit.cshtml" />
-    <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\BooksCart\Index.cshtml" />
     <Content Include="Views\Checkout\AddressAndPayment.cshtml" />
     <Content Include="Views\Checkout\Complete.cshtml" />
@@ -614,6 +639,16 @@
     <Content Include="Views\Categories\View.cshtml" />
     <Content Include="Views\Categories\CategoriesList.cshtml" />
     <Content Include="Views\Categories\Browse.cshtml" />
+    <Content Include="Views\Messages\Create.cshtml" />
+    <Content Include="Views\Messages\Delete.cshtml" />
+    <Content Include="Views\Messages\Details.cshtml" />
+    <Content Include="Views\Messages\Edit.cshtml" />
+    <Content Include="Views\Messages\Index.cshtml" />
+    <Content Include="Views\Books\Create.cshtml" />
+    <Content Include="Views\Books\Delete.cshtml" />
+    <Content Include="Views\Books\Details.cshtml" />
+    <Content Include="Views\Books\Edit.cshtml" />
+    <Content Include="Views\Books\Index.cshtml" />
     <Content Include="Views\Books\ShowNews.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -805,6 +840,27 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201701230031115_categories5.resx">
       <DependentUpon>201701230031115_categories5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701240235190_orderLine.resx">
+      <DependentUpon>201701240235190_orderLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701240237228_orderLine1.resx">
+      <DependentUpon>201701240237228_orderLine1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701240356040_cos1.resx">
+      <DependentUpon>201701240356040_cos1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701240359213_cos2.resx">
+      <DependentUpon>201701240359213_cos2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701240400080_cos3.resx">
+      <DependentUpon>201701240400080_cos3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701240537488_heh3.resx">
+      <DependentUpon>201701240537488_heh3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701240602238_heh4.resx">
+      <DependentUpon>201701240602238_heh4.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\HomeTexts.En.resx" />
     <EmbeddedResource Include="Resources\HomeTexts.Pl.resx" />

@@ -31,7 +31,6 @@
         </dt>
 
         <dd>
-            @*@Html.DisplayFor(model => model.Publishers.FirstOrDefault().name)*@
             @Html.DisplayFor(model => model.PublishersBooks.FirstOrDefault().Publisher.name)
         </dd>
 
@@ -60,14 +59,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.BookStateID)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BookState.state)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.ISBN)
         </dt>
 
@@ -75,13 +66,21 @@
             @Html.DisplayFor(model => model.ISBN)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.BookStateID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookState.state)
+        </dd>
+
     </dl>
 </div>
 <p>
-@if (User.IsInRole("Administrator"))
-{
-    @Html.ActionLink("Edytuj", "Edit", new { id = Model.BookID })
-                                                                  }
+    @if (User.IsInRole("Administrator"))
+    {
+        @Html.ActionLink("Edytuj", "Edit", new { id = Model.BookID })
+    }
     @Html.ActionLink("Wróć do listy", "Index")
 
 </p>

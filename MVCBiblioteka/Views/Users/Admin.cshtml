@@ -4,19 +4,28 @@
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<h2>Admin</h2>
+<h2>Panel admina</h2>
 
 <div>
-    <br /><br /><br />
+    <br /><br />
     <div style="float:left;width:500px;height:800px;">
-        @*@Html.ActionLink("Lista książek", "Index", "Books")*@
         <section>
             <div>
-                <h1>Witaj administratorze!</h1>
+                @if (User.IsInRole("Administrator"))
+                {
+                    <h1>Witaj administratorze!</h1>
+                }
+                else if (User.IsInRole("Pracownik"))
+                {
+                    <h1>Witaj pracowniku!</h1>
+                }
             </div>
             Biblioteka internetowa - umożliwia szybkie i łatwe wypożyczenie Twojej ulubionej książki bez wychodzenia z domu. Wystarczy kilka kliknięć i gotowe.
             Możesz wyszukiwać książki według ich gatunku, autora który je napisał bądź wydawnictwa przez które zostało opublikowane.
         </section>
+        <br />
+        <a>@Html.ActionLink(MVCBiblioteka.Resources.HomeTexts.Wiadomosci, "Index", "Messages")</a>
+
     </div>
     <br /><br />
     <div style="float:right">

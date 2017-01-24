@@ -35,7 +35,7 @@ namespace MVCBiblioteka.Controllers
             return "OK";
         }
 
-        public string AddToRole(string id)
+        public string AddToEmployeeRole(string id)
         {
             IdentityManager im = new IdentityManager();
             ApplicationUser applicationUser = db.Users.Find(id);

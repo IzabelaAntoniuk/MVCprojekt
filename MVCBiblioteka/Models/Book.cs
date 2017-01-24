@@ -34,10 +34,11 @@ namespace MVCBiblioteka.Models
         public int BookStateID { get; set; }
         [Required]
         public string ISBN { get; set; }
-
-        //[Required]
-        //[Display(Name = "Status: ")]
-        //public int BookStateID { get; set; }
+        [Display(Name = "Stan na magazynie: ")]
+        public int? stockLevel { get; set; }
+        [Display(Name = "Kolejka: ")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        public LinkedList<ApplicationUser> orderLine { get; set; }
 
         public virtual ICollection<PublisherBooks> PublishersBooks { get; set; }
         public virtual ICollection<AuthorBooks> AuthorsBooks { get; set; }

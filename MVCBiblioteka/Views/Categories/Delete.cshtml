@@ -1,15 +1,14 @@
 ﻿@model MVCBiblioteka.Models.Category
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = "Usuwanie kategorii";
     Layout = "~/Views/Shared/_Admin.cshtml";
 }
 
-<h2>Delete</h2>
+<h2>Usuwanie kategorii</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>Jesteś pewien, że chcesz to usunąć?</h3>
 <div>
-    <h4>Category</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -34,8 +33,8 @@
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            <input type="submit" value="Usuń" class="btn btn-default" /> |
+            @Html.ActionLink("Wróć do listy", "Index")
         </div>
     }
 </div>

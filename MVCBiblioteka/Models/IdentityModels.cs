@@ -31,6 +31,8 @@ namespace MVCBiblioteka.Models
         public string dateBirth { get; set; }
         [Display(Name = "Telefon: ")]
         public string phone { get; set; }
+        [Display(Name = "Aktywność")]
+        public bool isConfirm { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
@@ -57,6 +59,7 @@ namespace MVCBiblioteka.Models
         public DbSet<BooksCart> ShoppingCarts { get; set; }
         public DbSet<CategoryBooks> CategoryBooks { get; set; }
         public DbSet<PublisherBooks> PublisherBooks { get; set; }
+        public DbSet<Message> Messages { get; set; }
         public DbSet<AuthorBooks> AuthorBooks { get; set; }
         public DbSet<BookState> BookStates { get; set; }
         public DbSet<BooksCartViewModel> ShoppingCartsViewModel { get; set; }

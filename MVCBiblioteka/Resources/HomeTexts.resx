@@ -150,8 +150,17 @@
   <data name="Potwierdz_haslo" xml:space="preserve">
     <value>Confirm password</value>
   </data>
+  <data name="Wiadomosci" xml:space="preserve">
+    <value>News</value>
+  </data>
   <data name="Witaj" xml:space="preserve">
     <value>Hello</value>
+  </data>
+  <data name="WitajAdmin" xml:space="preserve">
+    <value>Hello admin</value>
+  </data>
+  <data name="WitajPracownik" xml:space="preserve">
+    <value>Hello employee</value>
   </data>
   <data name="Wydawnictwa" xml:space="preserve">
     <value>Publishers</value>

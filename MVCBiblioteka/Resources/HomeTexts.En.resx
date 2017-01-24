@@ -150,6 +150,9 @@
   <data name="Potwierdz_haslo" xml:space="preserve">
     <value>Confirm password</value>
   </data>
+  <data name="Wiadomosci" xml:space="preserve">
+    <value>News</value>
+  </data>
   <data name="Witaj" xml:space="preserve">
     <value>Hello</value>
   </data>

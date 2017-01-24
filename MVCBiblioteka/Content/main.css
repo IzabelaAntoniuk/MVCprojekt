@@ -136,3 +136,37 @@ src: local('Kulminoituva'), url('kulminoituva.woff') format('woff');
     margin:40px 0 0 10px;
 }
 
+.guzik {
+   border-top: 1px solid #a8a8a8;
+   background: #c48790;
+   background: -webkit-gradient(linear, left top, left bottom, from(#ffebee), to(#c48790));
+   background: -webkit-linear-gradient(top, #ffebee, #c48790);
+   background: -moz-linear-gradient(top, #ffebee, #c48790);
+   background: -o-linear-gradient(top, #ffebee, #c48790);
+   padding: 4.5px 9px;
+   -webkit-border-radius: 8px;
+   -moz-border-radius: 8px;
+   border-radius: 8px;
+   -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+   box-shadow: rgba(0,0,0,1) 0 1px 0;
+   text-shadow: rgba(0,0,0,.4) 0 1px 0;
+   color: white;
+   font-size: 12px;
+   font-family: Helvetica, Arial, Sans-Serif;
+   text-decoration: none;
+   vertical-align: middle;
+   width: auto;
+   height: 30px;
+   color: #544738;
+   font-family: 'Arima Madurai', cursive;
+   }
+.guzik:hover {
+   border-top-color: #c48790;
+   background: #a33848;
+   color: #ccc;
+   }
+.guzik:active {
+   border-top-color: #e6acb5;
+   background: #e6acb5;
+   }

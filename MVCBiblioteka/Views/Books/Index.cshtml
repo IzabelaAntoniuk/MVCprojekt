@@ -2,14 +2,14 @@
 
 @{
     ViewBag.Title = "Lista książek";
-    }
+}
 
 <h2>Lista książek</h2>
 @if (User.IsInRole("Administrator") || User.IsInRole("Pracownik"))
 {
-<p>
-    @Html.ActionLink("Stwórz nową", "Create")
-</p>
+    <p>
+        @Html.ActionLink("Stwórz nową", "Create")
+    </p>
 }
 <p>
     @using (Html.BeginForm("Index", "Books", FormMethod.Get))
@@ -20,55 +20,62 @@
         @Html.RadioButton("option", "ISBN")  <text> ISBN </text>
         @Html.RadioButton("option", "BookStateID") <text>Status książki</text>
         @Html.RadioButton("option", "description") <text>Opis książki</text>
-       @Html.TextBox("SearchTitle") 
-       @*Autor: @Html.TextBox("SearchAuthor")*@
+        @Html.TextBox("SearchTitle")
+        @*Autor: @Html.TextBox("SearchAuthor")*@
         <input type="submit" value="Szukaj" />
     </p>
     }
-    
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.premiereDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AuthorID)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BookState.state)
-        </th>
-        <th></th>
-    </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.title)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.premiereDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AuthorsBooks.FirstOrDefault().Author.allname)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.BookState.state)
-        </td>
-        <td>
-@if (User.IsInRole("Administrator") || User.IsInRole("Pracownik"))
-{
-            @Html.ActionLink("Edytuj", "Edit", new { id = item.BookID })
-}
-            @Html.ActionLink("Szczegóły", "Details", new { id=item.BookID })
-@if (User.IsInRole("Administrator") || User.IsInRole("Pracownik"))
-{
-            @Html.ActionLink("Usuń", "Delete", new { id = item.BookID })
-}
-        </td>
-    </tr>
-}
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.premiereDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AuthorID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.stockLevel)
+            </th>
+            <th></th>
+        </tr>
 
-</table>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.premiereDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorsBooks.FirstOrDefault().Author.allname)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.stockLevel)
+                    @if (item.stockLevel.Equals(1))
+                    {
+                        <span>sztuka</span>
+                    }
+                    else
+                    { <span>sztuk</span> }
+                </td>
+                <td>
+                    @if (User.IsInRole("Administrator") || User.IsInRole("Pracownik"))
+                    {
+                        @Html.ActionLink("Edytuj", "Edit", new { id = item.BookID })
+                    }
+                    @Html.ActionLink("Szczegóły", "Details", new { id = item.BookID })
+                    @if (User.IsInRole("Administrator") || User.IsInRole("Pracownik"))
+                    {
+                        @Html.ActionLink("Usuń", "Delete", new { id = item.BookID })
+                    }
+                </td>
+            </tr>
+        }
+
+    </table>

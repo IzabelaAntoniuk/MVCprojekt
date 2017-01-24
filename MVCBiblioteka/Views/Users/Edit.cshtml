@@ -56,6 +56,16 @@
             </div>
         </div>
 
+        <div class="form-group">
+            @Html.LabelFor(model => model.isConfirm, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.isConfirm)
+                    @Html.ValidationMessageFor(model => model.isConfirm, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
         @*<div class="form-group">
             @Html.LabelFor(model => model.EmailConfirmed, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">

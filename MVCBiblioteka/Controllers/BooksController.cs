@@ -7,7 +7,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using MVCBiblioteka.Models;
-using MVCBiblioteka.Resources;
 
 namespace MVCBiblioteka.Controllers
 {
@@ -16,18 +15,17 @@ namespace MVCBiblioteka.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Books
-        //[Authorize]
-        public ActionResult Index(string searchTitle, string option,string searchState,string searchCategory)
+        public ActionResult Index(string searchTitle, string option, string searchState, string searchCategory)
         {
-           
             var books = db.Books.ToList();
             var state = from m in db.BookStates select m;
+            ViewBag.stockLevel = new SelectList(db.Books, "BookStateID", "stockLevel");
 
-            if (option== "title")
+            if (option == "title")
             {
                 books = books.Where(g => g.title.Contains(searchTitle)).ToList();
             }
-            else if( option=="ISBN")
+            else if (option == "ISBN")
             {
                 books = books.Where(g => g.ISBN.Contains(searchTitle)).ToList();
 
@@ -46,6 +44,24 @@ namespace MVCBiblioteka.Controllers
 
             return View(books);
         }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Index([Bind(Include = "stockLevel")] Book book)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(book).State = EntityState.Modified;
+
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            ViewBag.stockLevel = new SelectList(db.Books, "BookStateID", "stockLevel");
+
+            return View(book);
+        }
+
         public ActionResult ShowNews()
         {
             var books = db.Books.OrderByDescending(x => x.BookID).Take(3).ToList();
@@ -60,9 +76,7 @@ namespace MVCBiblioteka.Controllers
             return View(bookModel);
         }
 
-
         // GET: Books/Details/5
-        //[Authorize(Roles = "Administrator")]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -94,7 +108,7 @@ namespace MVCBiblioteka.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BookID,title,premiereDate,PublisherID,AuthorID,CategoryID,description,state,ISBN,LendID,BookStateID")] Book book)
+        public ActionResult Create([Bind(Include = "BookID,title,premiereDate,PublisherID,AuthorID,CategoryID,description,BookStateID,ISBN,stockLevel")] Book book)
         {
             if (ModelState.IsValid)
             {
@@ -114,7 +128,7 @@ namespace MVCBiblioteka.Controllers
                 AuthorBooks.BookID = book.BookID;
                 AuthorBooks.AuthorID = book.AuthorID;
                 db.AuthorBooks.Add(AuthorBooks);
-                
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -145,6 +159,7 @@ namespace MVCBiblioteka.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.BookStateID = new SelectList(db.BookStates, "BookStateID", "state", book.BookStateID);
             return View(book);
         }
 
@@ -153,7 +168,7 @@ namespace MVCBiblioteka.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BookID,title,premiereDate,PublisherID,AuthorID,CategoryID,description,BookStateID,ISBN")] Book book)
+        public ActionResult Edit([Bind(Include = "BookID,title,premiereDate,PublisherID,AuthorID,CategoryID,description,BookStateID,ISBN,stockLevel")] Book book)
         {
             if (ModelState.IsValid)
             {
@@ -177,12 +192,10 @@ namespace MVCBiblioteka.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-
             ViewBag.CategoryID = new SelectList(db.Categories, "CategoryID", "name", book.CategoryID);
             ViewBag.PublisherID = new SelectList(db.Publishers, "PublisherID", "name", book.PublisherID);
             ViewBag.AuthorID = new SelectList(db.Authors, "AuthorID", "allname", book.AuthorID);
             ViewBag.BookStateID = new SelectList(db.BookStates, "BookStateID", "state");
-
             return View(book);
         }
 

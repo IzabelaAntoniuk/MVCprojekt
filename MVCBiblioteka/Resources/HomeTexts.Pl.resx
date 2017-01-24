@@ -138,6 +138,12 @@
   <data name="Lista_książek" xml:space="preserve">
     <value>Lista książek</value>
   </data>
+  <data name="Wiadomosci" xml:space="preserve">
+    <value>Wiadomości</value>
+  </data>
+  <data name="Witaj" xml:space="preserve">
+    <value>Witaj</value>
+  </data>
   <data name="Wydawnictwa" xml:space="preserve">
     <value>Wydawnictwa</value>
   </data>

@@ -150,6 +150,9 @@
   <data name="Potwierdz_haslo" xml:space="preserve">
     <value>Подтвердите Пароль</value>
   </data>
+  <data name="Wiadomosci" xml:space="preserve">
+    <value>новости</value>
+  </data>
   <data name="Wydawnictwa" xml:space="preserve">
     <value>Издатели</value>
   </data>

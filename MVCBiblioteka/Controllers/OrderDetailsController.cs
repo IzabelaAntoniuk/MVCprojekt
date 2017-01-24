@@ -55,6 +55,15 @@ namespace MVCBiblioteka.Controllers
             if (ModelState.IsValid)
             {
                 db.OrderDetails.Add(orderDetail);
+
+                var stock = from m
+                            in db.Books
+                            where m.title == orderDetail.Book.title
+                            select m;
+
+                if (stock != null)
+                db.Books.Where(b => b.title == stock.FirstOrDefault().title).FirstOrDefault().stockLevel--;
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

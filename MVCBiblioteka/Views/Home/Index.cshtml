@@ -1,14 +1,11 @@
-﻿@*@model IEnumerable<MVCBiblioteka.Models.Message>*@
+﻿@model IEnumerable<MVCBiblioteka.Models.Message>
 @{
     ViewBag.Title = "Strona główna";
 }
 
-
-
 <div>
-    <br/><br/><br />
     <div style="float:left;width:500px;height:800px;">
-        @*@Html.ActionLink("Lista książek", "Index", "Books")*@
+        <br />
         <section>
             <div>
                 <h1>Witaj na naszym portalu!</h1>
@@ -34,12 +31,25 @@
             prawa , wierzenia oraz podania przechowywano
             w pamięci ludzkiej.
         </section>
+
         <section>
             @{Html.RenderAction("ShowNews", "Books");}
         </section>
+        
     </div>
-    <br/><br/>
+    <br/><br/><br />
     <div style="float:right">
+        @*@Html.ActionLink("Lista książek", "Index", "Books")*@
+        <div class="alert alert-info">
+            <strong>Wiadomość od admina</strong><br />@Html.DisplayFor(modelItem => Model.FirstOrDefault().msg)
+        </div>
+
+        @if (User.IsInRole("Administrator") || User.IsInRole("Pracownik"))
+            {
+            <a>@Html.ActionLink("Stwórz nową wiadomość", "Create", "Messages")</a><br /><br />
+        }
+    </div>
+    <div style="float:right; margin-top:120px">
         <img src="~/Content/book.png" style="height:312px; width:500px;" />
     </div>
 </div>

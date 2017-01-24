@@ -17,6 +17,7 @@ namespace MVCBiblioteka.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        ApplicationDbContext db = new ApplicationDbContext();
 
         public AccountController()
         {
@@ -61,7 +62,6 @@ namespace MVCBiblioteka.Controllers
             return View();
         }
 
-        //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
@@ -69,11 +69,17 @@ namespace MVCBiblioteka.Controllers
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
 
-            if (!ModelState.IsValid)
+            var userdb = db.Users.Where(x => x.Email == model.Email && x.isConfirm == true).ToList();
+            if (userdb.Count == 1)
             {
-                return View(model);
+                if (!ModelState.IsValid)
+                {
+                    return View(model);
+                }
             }
-            
+            else return View("Lockout");
+
+
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
@@ -91,7 +97,7 @@ namespace MVCBiblioteka.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "Niepoprawny login.");
                     return View(model);
             }
         }
@@ -147,31 +153,42 @@ namespace MVCBiblioteka.Controllers
             return View();
         }
 
-        //
         // POST: /Account/Register
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            bool confirm = false;
+
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+
+                var user = new ApplicationUser
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    isConfirm = confirm
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 MigrateShoppingCart(model.Email);
-                if (result.Succeeded)
+
+
+
+                if (result.Succeeded && confirm == true)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    //string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
                     return RedirectToAction("Index", "Home");
                 }
-                AddErrors(result);
+                else return RedirectToAction("Login", "Account");
+               // AddErrors(result);
             }
 
             // If we got this far, something failed, redisplay form
@@ -209,7 +226,7 @@ namespace MVCBiblioteka.Controllers
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindByNameAsync(model.Email);
-                if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
+                if (user == null)
                 {
                     // Don't reveal that the user does not exist or is not confirmed
                     return View("ForgotPasswordConfirmation");

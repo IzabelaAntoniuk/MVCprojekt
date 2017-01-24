@@ -31,7 +31,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PublisherID)
+            @Html.DisplayFor(model => model.PublishersBooks.FirstOrDefault().Publisher.name)
         </dd>
 
         <dt>
@@ -39,7 +39,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.AuthorID)
+            @Html.DisplayFor(model => model.AuthorsBooks.FirstOrDefault().Author.name)
         </dd>
 
         <dt>
@@ -47,7 +47,7 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.CategoryID)
+            @Html.DisplayFor(model => model.CategoryBooks.FirstOrDefault().Category.name)
         </dd>
 
         <dt>
@@ -59,11 +59,11 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.state)
+            @Html.DisplayNameFor(model => model.BookState.state)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.state)
+            @Html.DisplayFor(model => model.BookState.state)
         </dd>
 
         <dt>
@@ -75,16 +75,17 @@
         </dd>
 
         <dt>
-           @* @Html.DisplayNameFor(model => model.LendID)*@
+            @* @Html.DisplayNameFor(model => model.LendID)*@
         </dt>
 
         <dd>
-          @*  @Html.DisplayFor(model => model.LendID)*@
+            @*  @Html.DisplayFor(model => model.LendID)*@
         </dd>
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
