@@ -1,0 +1,22 @@
+﻿@model IEnumerable<MVCBiblioteka.Models.Book>
+@{
+    ViewBag.Title = "ShowNews";
+}
+
+<h2>News</h2>
+<ul>
+   
+        @*<li>@Html.ActionLink(author.allname, "Browse", new { author = author.allname })</li>*@
+
+            @foreach (var item in Model)
+            {
+                <li>
+                @Html.ActionLink(item.title, "Details", new { id = item.BookID })
+            </li>
+         
+        }
+    
+</ul>
+  
+
+

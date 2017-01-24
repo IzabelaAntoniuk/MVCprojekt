@@ -4,6 +4,7 @@
 }
 
 
+
 <div>
     <br/><br/><br />
     <div style="float:left;width:500px;height:800px;">
@@ -15,6 +16,7 @@
             Biblioteka internetowa - umożliwia szybkie i łatwe wypożyczenie Twojej ulubionej książki bez wychodzenia z domu. Wystarczy kilka kliknięć i gotowe.
             Możesz wyszukiwać książki według ich gatunku, autora który je napisał bądź wydawnictwa przez które zostało opublikowane.
         </section>
+      
         <section>
             <h3>Jak wyglądała pierwsza książka?</h3>
             Część z nas odpowie, że była pisana
@@ -31,6 +33,9 @@
             papier i nikt nie znał atramentu, a wszystkie
             prawa , wierzenia oraz podania przechowywano
             w pamięci ludzkiej.
+        </section>
+        <section>
+            @{Html.RenderAction("ShowNews", "Books");}
         </section>
     </div>
     <br/><br/>

@@ -129,12 +129,12 @@ namespace MVCBiblioteka.Controllers
 
         public ActionResult Browse(string publisher)
         {
-            var publisherModel = db.Publishers.Include("Books")
+            var publisherModel = db.Publishers.Include("PublisherBooks")
                 .Single(p => p.name == publisher);
 
             return View(publisherModel);
         }
-
+    
         public ActionResult publishersList()
         {
             var publisher = db.Publishers.ToList();

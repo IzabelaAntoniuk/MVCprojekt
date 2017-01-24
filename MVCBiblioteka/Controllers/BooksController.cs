@@ -17,27 +17,49 @@ namespace MVCBiblioteka.Controllers
 
         // GET: Books
         //[Authorize]
-        public ActionResult Index(string searchTitle, string searchISBN, string searchAuthor,string searchCategory)
+        public ActionResult Index(string searchTitle, string option,string searchState,string searchCategory)
         {
            
             var books = db.Books.ToList();
-            
-            if (!String.IsNullOrEmpty(searchTitle))
+            var state = from m in db.BookStates select m;
+
+            if (option== "title")
             {
-                if (books != books.Where(g => g.ISBN.Contains(searchTitle)).ToList())
-                    books = books.Where(g => g.ISBN.Contains(searchTitle)).ToList();
-                else
-                    books = books.Where(g => g.title.Contains(searchTitle)).ToList();
+                books = books.Where(g => g.title.Contains(searchTitle)).ToList();
+            }
+            else if( option=="ISBN")
+            {
+                books = books.Where(g => g.ISBN.Contains(searchTitle)).ToList();
+
+            }
+            else if (option == "BookStateID")
+            {
+                books = books.Where(g => g.BookState.state.Contains(searchTitle)).ToList();
+
+            }
+            else if (option == "description")
+            {
+                books = books.Where(g => g.description.Contains(searchTitle)).ToList();
+
             }
 
-            if (!String.IsNullOrEmpty(searchISBN))
-            {
-                books = books.Where(g => g.ISBN.Contains(searchISBN)).ToList();
-                books = books.Where(g => g.CategoryBooks.FirstOrDefault().Category.name.Contains(searchTitle)).ToList();
-            }
 
             return View(books);
         }
+        public ActionResult ShowNews()
+        {
+            var books = db.Books.OrderByDescending(x => x.BookID).Take(3).ToList();
+
+            return View(books);
+        }
+        public ActionResult Browse(string books)
+        {
+            var bookModel = db.Books.Include("Books")
+                .Single(a => a.title == books);
+
+            return View(bookModel);
+        }
+
 
         // GET: Books/Details/5
         //[Authorize(Roles = "Administrator")]
@@ -72,7 +94,7 @@ namespace MVCBiblioteka.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BookID,title,premiereDate,PublisherID,AuthorID,CategoryID,description,state,ISBN,LendID")] Book book)
+        public ActionResult Create([Bind(Include = "BookID,title,premiereDate,PublisherID,AuthorID,CategoryID,description,state,ISBN,LendID,BookStateID")] Book book)
         {
             if (ModelState.IsValid)
             {
@@ -92,7 +114,7 @@ namespace MVCBiblioteka.Controllers
                 AuthorBooks.BookID = book.BookID;
                 AuthorBooks.AuthorID = book.AuthorID;
                 db.AuthorBooks.Add(AuthorBooks);
-
+                
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
